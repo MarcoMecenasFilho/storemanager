@@ -50,8 +50,7 @@ const updateProductSale = async (productId, quantity) => {
               WHERE id = ?;`;
     const [result] = await connection.execute(SQL, [quantity, quantity, productId]);
     const { affectedRows } = result;
-    console.log(result.info);
-    console.log(result);
+
     const changed = result.info.split(' ')[5];
     return { productId, affectedRows, changed: Number(changed), quantity };
 };

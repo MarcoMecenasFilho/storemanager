@@ -29,7 +29,7 @@ const getById = async (id) => {
   ON sms.id = smsp.sale_id
   WHERE sms.id = ?`;
   const [result] = await connection.execute(SQL, [id]);
-  console.log(transformCamelCaseWithOutId(result));
+
   return transformCamelCaseWithOutId(result);
 };
 

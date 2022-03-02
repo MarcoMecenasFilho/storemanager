@@ -3,7 +3,7 @@ const productsModels = require('../models/productsModels');
 
 const getAll = async () => {
   const modelResponse = await salesModels.getAll();
-  console.log({ code: 200, data: modelResponse });
+
   return { code: 200, data: modelResponse };
 }; 
 
@@ -35,8 +35,8 @@ message: `Product not found. ProductId:${filteredByProductsNotExist
   
     if (filteredProductsFail[0]) {
       return { code: 422,
-message: `Such amount is not permitted to sell. ProductId: ${filteredProductsFail
-        .map((elem) => `${elem.productId}`)}` };
+message: `Such amount is not permitted to sell. ProductId:${filteredProductsFail
+        .map((elem) => ` ${elem.productId}`)}` };
     }
   
     if (filteredProductsOk) {

@@ -8,7 +8,7 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const [modelResponse] = await productsModels.getById(id);
-  console.log(modelResponse);
+  
   if (!modelResponse || modelResponse === {}) {
     return { code: 404, message: 'Product not found' };
   }

@@ -21,7 +21,6 @@ const create = async (req, res, _next) => {
   
   if (error) {
     const [codes, message] = error.message.split('|');
-    console.log(message);
     return res.status(codes).json({ message });
   }
 
