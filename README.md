@@ -1,9 +1,11 @@
-<h1 align="center"> Store Manager </h1>
-
+<img src='./images/logo.gif' width="100%">
+<br>
+<hr>
 
 <h4 align="center"> 
 	🚧   StoreManager 🚀 Finalizado  🚧
 </h4>
+
 
 <br>
 <h2>Sobre</h2>
@@ -30,6 +32,8 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 - [Mocha](https://mochajs.org/)
 - [Chain](https://www.npmjs.com/package/chain)
 - [Sinon](https://sinonjs.org/)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Nyc](https://www.npmjs.com/package/nyc)
 
 <br>
 <h2>Instalar o projeto em sua máquina</h2>
@@ -37,7 +41,41 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 <h3>Pré-requisitos</h3>
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com) e [Node.js](https://nodejs.org/en/). É necessário ter  instalado e configurado o [Mysql](https://dev.mysql.com/doc/). Para uma melhor visualização do bando de dados indico a  utilização [MysqlWorkBench](https://www.mysql.com/products/workbench/) e possuir um editor de código, e sugiro  o [VSCode](https://code.visualstudio.com/).
+[Git](https://git-scm.com) e [Node.js](https://nodejs.org/en/). É necessário ter  instalado e configurado o [Mysql](https://dev.mysql.com/doc/). Para uma melhor visualização do banco de dados indico a  utilização [MysqlWorkBench](https://www.mysql.com/products/workbench/) e possuir um editor de código, sugiro  o [VSCode](https://code.visualstudio.com/). Para fazer as requisições nos endpoints recomendo o [Postman](https://www.postman.com/).
+
+
+Para criar o banco de dados, copie todo o conteúdo do arquivo StoreManager.sql e
+cole no  workbench. Rode todas as query, assim o banco estará online localmente.
+Para utilizar o banco de dados na aplicação. Renomeio o arquivo .env.example para .env
+e troque as informações para as que foram criadas quando o MySQL foi configurado. O PORT deve permanecer 3000.
+
+###  Rodando a aplicação .
+
+```bash
+# Clone este repositório
+# Foi utilizado SSH
+$ git clone git@github.com:MarcoMecenasFilho/storemanager
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd storemanager
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run debug
+
+```
+
+### Rodando os testes
+```bash
+# Para rodar os testes
+$  npm run test:mocha
+
+```
+
+
+
 
 ## Métodos
 Requisições para a API devem seguir os padrões:
@@ -933,3 +971,6 @@ Id de um  produto que não existe /products/89
           {
             "message": "Product not found"
           }
+
+
+ - Este projeto foi feito com muita dedicação e carinho por Marco Mecenas  [Entre em contato!](https://www.linkedin.com/in/marcomecenasfilho/).
