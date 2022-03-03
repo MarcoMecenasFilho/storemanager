@@ -469,17 +469,17 @@ Listar venda por um id específico /sales/2
 
 + Request (application/json)
 
-    + body
+  + body
 
         [
-            {
-              "productId": 1,
-              "quantity": 2
-            },
-            {
-              "productId": 2,
-              "quantity": 5
-            }
+          {
+            "productId": 1,
+            "quantity": 2
+          },
+          {
+            "productId": 2,
+            "quantity": 5
+          }
         ]
 
 + Response 201 (application/json)
@@ -504,7 +504,7 @@ Quando a quantidade do produto não existe no banco de dados.
 
     + body
 
-        [
+          [
             {
               "productId": 1,
               "quantity": 200
@@ -513,11 +513,11 @@ Quando a quantidade do produto não existe no banco de dados.
               "productId": 2,
               "quantity": 1
             }
-             {
+              {
               "productId": 3,
               "quantity": 100
             }
-        ]
+          ]
 
 + Response 422 (application/json)
 
@@ -531,7 +531,7 @@ Quando o id do produto não existe no banco de dados.
 
     + body
 
-        [
+          [
             {
               "productId": 1,
               "quantity": 2
@@ -539,15 +539,397 @@ Quando o id do produto não existe no banco de dados.
             {
               "productId": 67,
               "quantity": 1
-            }
-             {
+            },
+              {
               "productId": 99,
               "quantity": 1
             }
-        ]
+          ]
+
++ Response 404 (application/json)
+
+          {
+              "message": "Product not found. ProductId: 67, 99"
+          }
+
+#### Quando as validações falham
+
+Quando "quantity" não é passado.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {    
+                "productId: 1
+            }
+          ]
+
++ Response 400 (application/json)
+
+          {
+              "message": "\"quantity\" is required"
+          }
+
+Quando "quantity" não é um number.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId: 1,
+                "quantity": "300"
+            }
+          ]
 
 + Response 422 (application/json)
 
           {
-              "message": "Product not found. ProductId: 67, 99"
+              "message": "\"quantity\" must be a number"
+          }
+
+Quando "quantity" não é um numero inteiro.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId: 1,
+                "quantity": 3.22
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+               "message": "\"quantity\" must an integer"
+          }
+
+Quando "quantity" não é um numero positivo.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId: 1,
+                "quantity": -2
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+                "message": "\"quantity\" must be greater than or equal to 1"
+          }
+
+Quando "productId" não é passado.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {    
+                "quantity": 1
+            }
+          ]
+
++ Response 400 (application/json)
+
+          {
+              "message": "\"productId\" is required"
+          }
+
+Quando "productId" não é um number.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId": "3"
+                "quantity": 1,
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+              "message": "\"productId\" must be a number"
+          }
+
+Quando "productId" não é um numero inteiro.
+
++ Request (application/json)
+
+    + body
+
+          [  
+            {        
+                "productId": 3.22
+                "quantity: 1,
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+               "message": "\"productId\" must an integer"
+          }
+
+Quando "productId" não é um numero positivo.
+
++ Request (application/json)
+
+    + body
+
+          [
+              {        
+                "productId": -2,
+                "quantity: 1
+              }
+          ]
+
++ Response 422 (application/json)
+
+          {
+                "message": "\"productId\" must be greater than or equal to 1"
+          }
+
+### Atualizar  /sales/id [PUT]
+
++ Request (application/json)
+
+    + body
+
+          [
+            {
+              "productId": 1,
+              "quantity": 1
+            }
+          ]
+
++ Response 200 (application/json)
+
+          {
+              "saleId": 1,
+              "itemUpdate": [
+                {
+                  "productId": 1,
+                  "quantity": 1
+                }
+              ]
+          }
+
+Quando a quantidade do produto não existe no banco de dados.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {
+              "productId": 1,
+              "quantity": 200
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+              "message": "Such amount is not permitted to sell"
+          }
+
+Quando o id do produto não existe no banco de dados.
+
++ Request (application/json)
+
+    + body
+
+            [
+              {
+                "productId": 89,
+                "quantity": 2
+              }
+            ]
+
++ Response 404 (application/json)
+
+          {
+              "message": "Product not found"
+          }
+
+#### Quando as validações falham
+
+Quando "quantity" não é passado.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {    
+                "productId: 1
+            }
+          ]
+
++ Response 400 (application/json)
+
+          {
+              "message": "\"quantity\" is required"
+          }
+
+Quando "quantity" não é um number.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId: 1,
+                "quantity": "300"
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+              "message": "\"quantity\" must be a number"
+          }
+
+Quando "quantity" não é um numero inteiro.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId: 1,
+                "quantity": 3.22
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+               "message": "\"quantity\" must an integer"
+          }
+
+Quando "quantity" não é um numero positivo.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId: 1,
+                "quantity": -2
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+                "message": "\"quantity\" must be greater than or equal to 1"
+          }
+
+Quando "productId" não é passado.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {    
+                "quantity": 1
+            }
+          ]
+
++ Response 400 (application/json)
+
+          {
+              "message": "\"productId\" is required"
+          }
+
+Quando "productId" não é um number.
+
++ Request (application/json)
+
+    + body
+
+          [
+            {        
+                "productId": "3"
+                "quantity": 1,
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+              "message": "\"productId\" must be a number"
+          }
+
+Quando "productId" não é um numero inteiro.
+
++ Request (application/json)
+
+    + body
+
+          [  
+            {        
+                "productId": 3.22
+                "quantity: 1,
+            }
+          ]
+
++ Response 422 (application/json)
+
+          {
+               "message": "\"productId\" must an integer"
+          }
+
+Quando "productId" não é um numero positivo.
+
++ Request (application/json)
+
+    + body
+
+          [
+              {        
+                "productId": -2,
+                "quantity: 1
+              }
+          ]
+
++ Response 422 (application/json)
+
+          {
+                "message": "\"productId\" must be greater than or equal to 1"
+          }
+
+### Deletar /sales/id  [DELETE]
+
+Para deletar um produto passamos o id desejado /products/4
+
+
++ Response 204
+
+Id de um  produto que não existe /products/89
+
++ Response 404 (application/json)
+
+          {
+            "message": "Product not found"
           }
