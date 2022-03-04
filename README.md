@@ -30,7 +30,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 - [Joi](https://joi.dev/)
 - [Mysql2](https://www.npmjs.com/package/mysql2)
 - [Mocha](https://mochajs.org/)
-- [Chai](https://www.npmjs.com/package/chai)
+- [Chai](https://www.chaijs.com/)
 - [Sinon](https://sinonjs.org/)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [Nyc](https://www.npmjs.com/package/nyc)
