@@ -95,12 +95,9 @@ Requisições para a API devem seguir os padrões:
 | `201` | Criado com sucesso com sucesso.|
 | `204` | Sem conteúdo.|
 | `400` | Erros de validação ou os campos informados não existem no sistema.|
-| `401` | Dados de acesso inválidos.|
 | `404` | Registro pesquisado não encontrado (Not found).|
-| `405` | Método não implementado.|
-| `410` | Registro pesquisado foi apagado do sistema e não esta mais disponível.|
 | `422` | Dados informados estão fora do escopo definido para o campo.|
-| `429` | Número máximo de requisições atingido. (*aguarde alguns segundos e tente novamente*)|
+
 
 <br>
 
